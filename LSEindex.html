@@ -72,7 +72,7 @@
 
         /* VIDEO CAROUSEL */
         .carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:10px 0;}
-        .carousel iframe{flex:0 0 360px;height:200px;border-radius:12px;scroll-snap-align:start;border:none;box-shadow:0 6px 18px rgba(0,0,0,.15);}
+        .carousel iframe{flex:0 0 360px;height:200px;border-radius:12px;scroll-snap-align:start;border:none;box-shadow:0 6-px 18px rgba(0,0,0,.15);}
 
         /* CONTACT */
         .contact-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:28px;text-align:left}
@@ -265,8 +265,9 @@
             
             const form = document.getElementById('application-form');
             if (form.checkValidity()) {
-                // Change the URL slug without reloading the page
-                history.pushState({}, 'Thank You Page', '/thank-you');
+                // To fix the 404 error on platforms like GitHub Pages, we remove the pushState call.
+                // It changes the URL but doesn't create a corresponding HTML file on the server.
+                // history.pushState({}, 'Thank You Page', '/thank-you');
 
                 const thankYouHTML = `
                     <div class="thank-you-page">

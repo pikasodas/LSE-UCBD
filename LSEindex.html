@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UCBD | University of London Degree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --brand: #F86700;
+            --accent: #EA001F;
+            --ink: #0b2a4a;
+            --muted: #6b7c93;
+        }
+        *{box-sizing:border-box}
+        body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333;}
+        .container{width:min(1180px,92vw);margin:0 auto;}
+
+        /* HERO */
+        .hero{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://www.loganconstruction.co.uk/wp-content/uploads/2023/02/LSE.jpg') center/cover no-repeat;min-height:92vh;display:block;padding:60px 0;}
+        .hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;}
+        .hero-content{color:#fff;max-width:56%;}
+        .hero-content h1{font-size:46px;line-height:1.15;margin:0 0 14px;font-weight:700;}
+        .hero-content p{font-size:18px;line-height:1.6;margin:0;opacity:.95}
+
+        /* FORM */
+        .form-box{background:#ffffffcc;backdrop-filter:saturate(130%) blur(6px);padding:24px;border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.25);max-width:380px;border:1px solid rgba(255,255,255,.6);align-self:flex-start;margin-top:8px;}
+        .form-box h3{margin:0 0 14px;color:var(--accent);font-size:22px;text-align:center;}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .form-row .full{grid-column:1/-1}
+        .form-box input,.form-box select{width:100%;padding:12px;border:1px solid #d9e2ec;border-radius:8px;font-size:14px;transition:.25s;background:#fff}
+        .form-box input:focus,.form-box select:focus{border-color:var(--brand);outline:3px solid rgba(248,103,0,.22)}
+        .form-box button{background:linear-gradient(90deg,var(--accent),#C00019);color:#fff;border:none;width:100%;padding:14px 16px;font-weight:700;border-radius:10px;cursor:pointer;transition:.25s;font-size:16px}
+        .form-box button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(234,0,31,.35)}
+
+        /* SECTIONS */
+        .section{padding:70px 0;text-align:center}
+        .section h2{font-size:32px;color:var(--brand);margin:0 0 14px}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:26px}
+        .card{background:#fff;border-radius:12px;padding:24px;text-align:left;box-shadow:0 8px 22px rgba(0,0,0,.08);border:1px solid #edf2f7;transition:.25s}
+        .card:hover{transform:translateY(-6px);box-shadow:0 16px 28px rgba(0,0,0,.14)}
+        .card h3{color:var(--brand);margin:0 0 8px}
+
+        /* Enforce 2x2 for specific card sections on large screens */
+        .grid-2x2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Simple List styling for rankings */
+        .ranking-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            justify-items: center;
+        }
+        .ranking-list li {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px 24px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.08);
+            border: 1px solid #edf2f7;
+            width: 100%;
+            max-width: 600px;
+        }
+        .ranking-list li strong {
+            color: var(--brand);
+        }
+
+        /* VIDEO CAROUSEL */
+        .carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:10px 0;}
+        .carousel iframe{flex:0 0 360px;height:200px;border-radius:12px;scroll-snap-align:start;border:none;box-shadow:0 6px 18px rgba(0,0,0,.15);}
+
+        /* CONTACT */
+        .contact-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:28px;text-align:left}
+        .contact-card{background:#fdfdfd;border-radius:14px;padding:28px;box-shadow:0 6px 20px rgba(0,0,0,.08);border:1px solid #eee}
+        .contact-card h3{margin-top:0;color:var(--brand)}
+        .contact-card p{margin:6px 0;color:#444}
+
+        /* FINAL SECTION */
+        .final-cta {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .final-cta p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Thank You Page */
+        .thank-you-page {
+            background-color: var(--brand);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .thank-you-page h1 {
+            font-size: 64px;
+            margin: 0;
+        }
+        .thank-you-page p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        footer{text-align:center;padding:25px;color:#777;border-top:1px solid #eee;margin-top:40px;background:#f9f9f9}
+
+        /* RESPONSIVE */
+        @media(min-width:768px){
+            .grid-2x2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .ranking-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media(max-width:1024px){
+            .hero-content{max-width:58%}
+            .form-box{max-width:360px}
+        }
+        @media(max-width:900px){
+            .hero{padding:40px 0}
+            .hero-row{flex-direction:column;align-items:center}
+            .hero-content{max-width:780px;text-align:center}
+            .form-box{width:100%;max-width:520px}
+        }
+    </style>
+</head>
+<body>
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-row">
+                <div class="hero-content">
+                    <h1>Earn a University of London Degree Here in Dhaka</h1>
+                    <p>Study with academic direction from the London School of Economics (LSE) and graduate with a world-class qualification in economics, management, finance, and social sciences.</p>
+                </div>
+
+                <div class="form-box">
+                    <h3>Apply Now</h3>
+                    <form id="application-form" class="form-row">
+                        <input type="text" placeholder="First Name*" required>
+                        <input type="text" placeholder="Last Name*" required>
+                        <input class="full" type="email" placeholder="Email*" required>
+                        <input class="full" type="tel" placeholder="Phone Number*" required>
+                        <select required><option>Intake Month*</option><option>January</option><option>July</option><option>August</option></select>
+                        <select required><option>Intake Year*</option><option>2025</option><option>2026</option></select>
+                        <button class="full" type="submit">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY STUDY AT UCBD? -->
+        <section class="section">
+            <div class="container">
+                <h2>Why study the University of London EMFSS at UCBD?</h2>
+                <div class="cards grid-2x2">
+                    <div class="card"><p>Delivered in Bangladesh with academic direction from LSE.</p></div>
+                    <div class="card"><p>Globally recognized qualifications designed to international standards.</p></div>
+                    <div class="card"><p>Build expertise in economics, management, finance, and social sciences.</p></div>
+                    <div class="card"><p>Study locally and earn an internationally respected degree.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GLOBAL RECOGNITION & RANKINGS -->
+        <section class="section">
+            <div class="container">
+                <h2>Global Recognition & Rankings</h2>
+                <ul class="ranking-list">
+                    <li><strong>#4</strong> in The Guardian University Guide 2025</li>
+                    <li><strong>University of the Year</strong> in The Times and The Sunday Times Good University Guide 2025</li>
+                    <li><strong>#50</strong> in QS World University Rankings 2025</li>
+                    <li><strong>#50</strong> in Times Higher Education World University Rankings 2025</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROGRAMS OFFERED -->
+        <section class="section">
+            <div class="container">
+                <h2>Programs Offered at UCBD</h2>
+                <div class="cards grid-2x2">
+                    <div class="card"><h3>BSc Business and Management</h3></div>
+                    <div class="card"><h3>BSc Accounting and Finance</h3></div>
+                    <div class="card"><h3>BSc Economics</h3></div>
+                    <div class="card"><h3>BSc Finance</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT REVIEWS -->
+        <section class="section">
+            <div class="container">
+                <h2>What Our Students Say</h2>
+                <div class="carousel">
+                    <iframe src="https://www.youtube.com/embed/ZjyKngWk_zo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen rel="noopener noreferrer nofollow"></iframe>
+                    <iframe src="https://www.youtube.com/embed/_0WaDFjt5nM" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen rel="noopener noreferrer nofollow"></iframe>
+                    <iframe src="https://www.youtube.com/embed/yOfeEpBUt1k" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen rel="noopener noreferrer nofollow"></iframe>
+                    <iframe src="https://www.youtube.com/embed/SwF8eG0EuwI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen rel="noopener noreferrer nofollow"></iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FINAL CALL TO ACTION -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Your London Degree Starts Here in Dhaka</h2>
+                <p>Join UCBD’s University of London EMFSS program and unlock a future shaped by world-class education.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section">
+            <div class="container">
+                <h2>Campus and contact information</h2>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Our Campus</h3>
+                        <p><strong>Universal College Bangladesh (UCBD)</strong></p>
+                        <p>SA Tower, 1 Gulshan Avenue, Dhaka 1212</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Hotline</h3>
+                        <p>+880 188 641 2222</p>
+                        <p>+880 1844 277 343</p>
+                        <p>+880 184 427 7342</p>
+                        <p>+880 189 601 3882</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>admission@ucbd.edu.bd</p>
+                        <p>info@ucbd.edu.bd</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© <span id="year"></span> UCBD. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.getElementById('application-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the default form submission
+            
+            const form = document.getElementById('application-form');
+            if (form.checkValidity()) {
+                // Change the URL slug without reloading the page
+                history.pushState({}, 'Thank You Page', '/thank-you');
+
+                const thankYouHTML = `
+                    <div class="thank-you-page">
+                        <h1>Thank You!</h1>
+                        <p>Your application has been submitted successfully. We will be in touch shortly.</p>
+                    </div>
+                `;
+                document.body.innerHTML = thankYouHTML;
+            } else {
+                form.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>
